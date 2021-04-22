@@ -11,6 +11,10 @@
   </head>
 
   <body>
+  <%= flash[:error]%>
+  <%= flash[:message]%>
+
+  <%= link_to 'LOGOUT', logout_path, class: 'nav-link active', method: 'delete' %>
     <%= yield %>
   </body>
 </html>
