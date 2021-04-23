@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :fish_processors
+  resources :tenders
+  resources :boats
+  resources :fish_tickets
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 

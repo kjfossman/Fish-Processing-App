@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tender_id: 1
+  boat_id: 1
+  chum_pounds: 1
+  sockeye_pounds: 1
+  coho_pounds: 1
+  humpy_pounds: 1
+  king_pounds: 1
+  date: 2021-04-22 16:09:52
+
+two:
+  tender_id: 1
+  boat_id: 1
+  chum_pounds: 1
+  sockeye_pounds: 1
+  coho_pounds: 1
+  humpy_pounds: 1
+  king_pounds: 1
+  date: 2021-04-22 16:09:52

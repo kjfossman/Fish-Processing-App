@@ -1,0 +1,2 @@
+class FishProcessorsController < ApplicationController
+end

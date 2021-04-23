@@ -1,0 +1,2 @@
+class FishProcessor < ApplicationRecord
+end
