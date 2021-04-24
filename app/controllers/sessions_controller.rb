@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
-        
+       
     end
 
     def create
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
             u.password = SecureRandom.hex(20)
         end
         if @user.valid?
-            flash[:message] = "Signed in with Google"
+            flash[:message] = "Welcome #{@user.username}"
             session[:user_id] = @user.id
             redirect_to root_path
         else

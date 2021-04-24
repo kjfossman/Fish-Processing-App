@@ -1,0 +1,11 @@
+<h1>Tenders</h1>
+<ol>
+    <% @tenders.each do |x| %>
+    
+        <li><%= link_to "#{x.name}", tender_path(x), class: "btn btn-outline-success m-2"%> </li>
+   
+    <% end %>
+</ol>
+
+
+   

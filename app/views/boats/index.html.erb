@@ -1,0 +1,9 @@
+<h1>Fishing Boats</h1>
+<p><%=link_to "Add New Boat", new_boat_path, class: "btn btn-outline-warning m-2"%></p>
+<ol>
+    <% Boat.all.each do |x| %>
+    
+        <li><%= link_to "#{x.name}", boat_path(x), class: "btn btn-outline-success m-2"%> </li>
+   
+    <% end %>
+</ol>
