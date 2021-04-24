@@ -21,6 +21,23 @@ class BoatsController < ApplicationController
         end
     end
 
+    def edit
+        @boat = Boat.find_by(id: params[:id])
+    end
+
+    def update 
+        @boat = Boat.find_by(id: params[:id])
+        @boat.update(boat_params)
+        byebug
+    end
+
+    def destroy
+        @boat = Boat.find_by(id: params[:id])
+        flash[:message] = "The #{@boat.name} has been removed from the database."
+        @boat.destroy
+        redirect_to boats_path
+    end
+
     private
     def boat_params
         params.require(:boat).permit(:name, :captain, :home_port, :fish_processor_id)
