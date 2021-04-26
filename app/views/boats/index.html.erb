@@ -3,7 +3,7 @@
 <ol>
     <% Boat.all.each do |x| %>
     
-        <li><%= link_to "#{x.name}", boat_path(x), class: "btn btn-outline-success m-2"%> - <%= link_to "EDIT", edit_boat_path(x) %> - <%= link_to "DELETE", boat_path(x), method: "delete" %> </li>
+        <li><%= link_to "#{x.name}", boat_path(x), class: "btn btn-outline-success m-2"%></li>
    
     <% end %>
 </ol>

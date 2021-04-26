@@ -46,6 +46,13 @@
         <li class="nav-item">
         <%= link_to 'LOGOUT', logout_path, class: "btn btn-primary m-2", method: 'delete' %><br>
         </li>
+        <li class="nav-item btn btn-primary m-2">
+        <%= form_tag(fish_ticket_search_path, method: :get) do %>
+          <%= text_field_tag(:search, params[:search]) %>
+          <%= submit_tag ("Search Fish Ticket by Number") %>
+          <% end %>
+        </li>
+
         <% end %>  
       </ul>
     </div>

@@ -1,2 +1,53 @@
 class FishTicketsController < ApplicationController
+
+    def search
+        if params[:search]
+            @fish_ticket = FishTicket.find_by(ticket_number: params[:search])
+            if @fish_ticket
+            redirect_to fish_ticket_path(@fish_ticket)
+            else
+                flash[:message] = "No Tickets Match That Search"
+                redirect_to fish_tickets_path
+            end
+        end
+    end
+
+    def index 
+        @fish_tickets = FishTicket.all   
+    end
+
+    def show   
+        @fish_ticket = FishTicket.find_by(id: params[:id])
+    end
+
+    def new
+        @fish_ticket = FishTicket.new
+    end
+
+    def create 
+        @fish_ticket = FishTicket.new(fish_ticket_params)
+        if @fish_ticket.save
+            redirect_to fish_ticket_path(@fish_ticket)
+        else
+            render :new
+        end
+    end
+
+    def date
+        @date = params[:date].to_datetime.strftime("%B %d, %Y")
+        @fish_tickets = FishTicket.by_day(params[:date].to_datetime)
+        render :date_index
+    end
+
+    def boat
+        @boat = Boat.find_by(id: params[:boat])
+        @fish_tickets = @boat.fish_tickets
+    end
+
+   
+
+    private
+    def fish_ticket_params
+        params.require(:fish_ticket).permit(:boat_id, :tender_id, :fish_processor_id, :chum_pounds, :coho_pounds, :sockeye_pounds, :humpy_pounds, :king_pounds, :ticket_number, :date, :search)
+    end
 end

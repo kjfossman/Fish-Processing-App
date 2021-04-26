@@ -1,0 +1,33 @@
+<%= form_with(model: @fish_ticket) do |f| %>
+    <%= f.label :ticket_number %>
+    <%= f.text_field :ticket_number %><br>
+
+    <%= f.label :chum_pounds %>
+    <%= f.text_field :chum_pounds %><br>
+
+    <%= f.label :sockeye_pounds %>
+    <%= f.text_field :sockeye_pounds %><br>
+
+    <%= f.label :coho_pounds %>
+    <%= f.text_field :coho_pounds %><br>
+
+    <%= f.label :humpy_pounds %>
+    <%= f.text_field :humpy_pounds %><br>
+
+    <%= f.label :king_pounds %>
+    <%= f.text_field :king_pounds %><br>
+
+    <%= f.label :date %>
+    <%= f.date_select :date, start_year: 2000, end_year: Time.now.year %><br>
+
+    <%= f.label :tender %>
+    <%= f.collection_select :tender_id, Tender.all, :id, :name, prompt: true %><br>
+
+    <%= f.label :boat %>
+    <%= f.collection_select :boat_id, Boat.all, :id, :name, prompt: true %><br>
+
+    <%= f.label :fish_processor %>
+    <%= f.collection_select :fish_processor_id, FishProcessor.all, :id, :name, prompt: true %><br>
+   
+    <%= f.submit "Submit" %>
+    <% end %>

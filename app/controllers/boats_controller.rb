@@ -28,7 +28,11 @@ class BoatsController < ApplicationController
     def update 
         @boat = Boat.find_by(id: params[:id])
         @boat.update(boat_params)
-        byebug
+        if @boat.save
+            redirect_to boat_path(@boat)
+        else
+            render :edit
+        end
     end
 
     def destroy

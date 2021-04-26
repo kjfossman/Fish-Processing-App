@@ -1,0 +1,5 @@
+<h1><%="#{@boat.name} Fish Tickets"%></h1>
+<h2><%="Captain: #{@boat.captain}"%></h2>
+<% @fish_tickets.each do |x| %>
+    <p><%= link_to "#{x.date.strftime("%B %d, %Y")}", fish_ticket_path(x), class: "btn btn-outline-success m-2" %></p>
+    <% end %>

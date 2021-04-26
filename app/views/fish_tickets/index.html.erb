@@ -1,0 +1,8 @@
+<h1>Welcome to the page of Fish Tickets</h1>
+
+<p><%=link_to "Add New FISH TICKET", new_fish_ticket_path, class: "btn btn-outline-warning m-2"%></p>
+
+
+<% FishTicket.select("date").group("date").count.each do |x| %>
+    <%= link_to "#{x[0].strftime("%B %d, %Y")} - #{x[1]} Tickets", date_path(x[0]), class: "btn btn-outline-success m-2"%><br>
+    <% end %>

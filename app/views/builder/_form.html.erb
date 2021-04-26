@@ -1,0 +1,13 @@
+<%= form_with(model: vessel) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :captain %>
+    <%= f.text_field :captain %><br>
+    <%= f.label :home_port %>
+    <%= f.text_field :home_port %><br>
+
+    <%= f.label :fish_processor %>
+    <%= f.collection_select :fish_processor_id, FishProcessor.all, :id, :name, prompt: true %><br>
+   
+    <%= f.submit "Submit" %>
+    <% end %>

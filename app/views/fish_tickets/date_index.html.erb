@@ -1,0 +1,8 @@
+<h1><%= "#{@date} Fish Tickets" %></h1>
+<% @fish_tickets.each do |x| %>
+    <div class="b">
+   <%= "#{x.boat.name} - "%> <%= link_to "Fish Ticket Number #{x.ticket_number}", fish_ticket_path(x), class: "btn btn-outline-success m-2" %><br>
+    </div>
+   <% end %>
+
+   
