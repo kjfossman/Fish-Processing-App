@@ -9,6 +9,6 @@
 <p> <%= "Coho Pounds: "%> <b><%="#{@fish_ticket.coho_pounds}" %></b> </p>
 <p> <%= "Humpy Pounds: "%> <b><%="#{@fish_ticket.humpy_pounds}" %></b> </p>
 <p> <%= "King Pounds: "%> <b><%="#{@fish_ticket.king_pounds}" %></b> </p>
-
-
 </div>
+
+<h1><%= link_to "EDIT", edit_fish_ticket_path(@fish_ticket), class: "btn btn-outline-warning btn-sm m-1" %><%= link_to "DELETE", fish_ticket_path(@fish_ticket), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %></h1>

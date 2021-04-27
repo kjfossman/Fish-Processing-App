@@ -37,9 +37,14 @@ class BoatsController < ApplicationController
 
     def destroy
         @boat = Boat.find_by(id: params[:id])
-        flash[:message] = "The #{@boat.name} has been removed from the database."
-        @boat.destroy
-        redirect_to boats_path
+        if @boat.fish_tickets.count == 0
+            flash[:message] = "The #{@boat.name} has been removed from the database."
+            @boat.destroy
+            redirect_to boats_path
+        else
+            flash[:message] = "The #{@boat.name} cannot be deleted because it has one or more fish tickets"
+            redirect_to boat_path(@boat)
+        end
     end
 
     private

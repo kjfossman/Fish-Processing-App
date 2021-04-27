@@ -37,9 +37,14 @@ class TendersController < ApplicationController
 
     def destroy
         @tender = Tender.find_by(id: params[:id])
-        flash[:message] = "The #{@tender.name} has been removed from the database."
-        @tender.destroy
-        redirect_to tenders_path
+        if @tender.fish_tickets.count == 0
+            flash[:message] = "The #{@tender.name} has been removed from the database."
+            @tender.destroy
+            redirect_to tenders_path
+        else 
+            flash[:message] = "The #{@tender.name} cannot be deleted because it has one or more fish tickets"
+            redirect_to tender_path(@tender)
+        end
     end
 
     private

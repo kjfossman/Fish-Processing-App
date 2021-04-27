@@ -28,7 +28,6 @@ class FishTicketsController < ApplicationController
     end
 
     def new
-    byebug
         @boat = Boat.find_by(id: params[:boat_id]) if params[:boat_id]
         @fish_ticket = FishTicket.new
     end
@@ -58,6 +57,27 @@ class FishTicketsController < ApplicationController
         @fish_tickets = @boat.fish_tickets
     end
 
+    def edit
+        @fish_ticket = FishTicket.find_by(id: params[:id])
+    end
+
+    def update
+        @fish_ticket = FishTicket.find_by(id: params[:id])
+        @fish_ticket.update(fish_ticket_params)
+        if @fish_ticket.save
+            flash[:message] = "Ticket Updated!"
+            redirect_to fish_ticket_path(@fish_ticket)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @fish_ticket = FishTicket.find_by(id: params[:id])
+        flash[:message] = "Fish Ticket Number #{@fish_ticket.ticket_number} For The #{@fish_ticket.boat.name} Has Been Removed"
+        @fish_ticket.destroy
+        redirect_to fish_tickets_path
+    end
    
 
     private

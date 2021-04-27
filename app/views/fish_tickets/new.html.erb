@@ -1,4 +1,8 @@
+<% if @boat %>
+<h1><%= "Create Fish Ticket For The #{@boat.name}" %></h1>
+<% else %>
 <h1>Create Fish Ticket</h1>
+<% end %>
    
 <%= render partial: 'builder/errors', locals: {vessel: @fish_ticket} %>
 <%= render 'form' %>
