@@ -27,7 +27,7 @@
     <%= f.collection_select :boat_id, Boat.all, :id, :name, prompt: true %><br>
 
     <%= f.label :fish_processor %>
-    <%= f.collection_select :fish_processor_id, FishProcessor.all, :id, :name, prompt: true %><br>
+    <%= f.collection_select :fish_processor_id, FishProcessor.all, :id, :name, prompt: true%><br>
    
     <%= f.submit "Submit" %>
     <% end %>

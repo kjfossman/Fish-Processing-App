@@ -28,6 +28,8 @@ class FishTicketsController < ApplicationController
     end
 
     def new
+    byebug
+        @boat = Boat.find_by(id: params[:boat_id]) if params[:boat_id]
         @fish_ticket = FishTicket.new
     end
 
@@ -40,10 +42,14 @@ class FishTicketsController < ApplicationController
         end
     end
 
-    def date
-        byebug
+    def date 
         @date = params[:date].to_datetime.strftime("%B %d, %Y")
-        @fish_tickets = FishTicket.by_day(params[:date].to_datetime)
+        if params[:boat_id]
+            @fish_tickets = FishTicket.by_boat(params[:boat_id])
+            @fish_tickets = @fish_tickets.by_day(params[:date].to_datetime)
+        else 
+            @fish_tickets = FishTicket.by_day(params[:date].to_datetime)
+        end
         render :date_index
     end
 
