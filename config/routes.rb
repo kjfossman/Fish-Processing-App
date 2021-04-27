@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :tenders
   resources :boats
   resources :fish_tickets
+
+  resources :boats do
+    resources :fish_tickets
+  end
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 

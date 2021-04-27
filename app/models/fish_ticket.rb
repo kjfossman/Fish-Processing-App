@@ -7,6 +7,7 @@ class FishTicket < ApplicationRecord
     validates :ticket_number, presence: true, uniqueness: true
 
     scope :by_day, ->(day) { where("date = ?", day) }
+    scope :by_boat, ->(boat) { where("boat_id = ?", boat) }
 
     # Order.select("created_at").group("created_at")
 

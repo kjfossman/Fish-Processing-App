@@ -13,7 +13,13 @@ class FishTicketsController < ApplicationController
     end
 
     def index 
+        byebug
+        @boat = Boat.find_by(id: params[:boat_id])
+        if @boat
+            @fish_tickets = @boat.fish_tickets
+        else
         @fish_tickets = FishTicket.all   
+        end
     end
 
     def show   
