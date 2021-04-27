@@ -13,12 +13,13 @@ class FishTicketsController < ApplicationController
     end
 
     def index 
-        byebug
+      
         @boat = Boat.find_by(id: params[:boat_id])
-        if @boat
-            @fish_tickets = @boat.fish_tickets
+      
+        if params[:boat_id]
+            @fish_tickets = Boat.find_by(id: params[:boat_id]).fish_tickets
         else
-        @fish_tickets = FishTicket.all   
+            @fish_tickets = FishTicket.all   
         end
     end
 
@@ -40,6 +41,7 @@ class FishTicketsController < ApplicationController
     end
 
     def date
+        byebug
         @date = params[:date].to_datetime.strftime("%B %d, %Y")
         @fish_tickets = FishTicket.by_day(params[:date].to_datetime)
         render :date_index
@@ -54,6 +56,6 @@ class FishTicketsController < ApplicationController
 
     private
     def fish_ticket_params
-        params.require(:fish_ticket).permit(:boat_id, :tender_id, :fish_processor_id, :chum_pounds, :coho_pounds, :sockeye_pounds, :humpy_pounds, :king_pounds, :ticket_number, :date, :search)
+        params.require(:fish_ticket).permit(:boat_id, :tender_id, :fish_processor_id, :chum_pounds, :coho_pounds, :sockeye_pounds, :humpy_pounds, :king_pounds, :ticket_number, :date, :search, :boat_id)
     end
 end
