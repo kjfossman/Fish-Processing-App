@@ -5,11 +5,14 @@ class TendersController < ApplicationController
     end
 
     def show
-       byebug
-       if params[:month]
-        @date = params[:month].to_datetime
+      
+       if params[:month] && params[:month] != "Total"
+        @date = params[:month].to_datetime 
        else
+        @date = nil
+       end
         @tender = Tender.find_by(id: params[:id])
+       
 
     end
 

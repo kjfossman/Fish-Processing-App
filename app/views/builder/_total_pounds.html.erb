@@ -1,5 +1,11 @@
-<p class="mx-5">Total Chum Pounds: <u><b><%=chum_pounds(vessel, vessel.fish_tickets)%></b></u> lbs  </p>
-<p class="mx-5">Total Sockeye Pounds: <u><b><%=sockeye_pounds(vessel, vessel.fish_tickets)%></b></u> lbs</p>
-<p class="mx-5">Total Coho Pounds: <u><b><%=coho_pounds(vessel, vessel.fish_tickets)%></b></u> lbs</p>
-<p class="mx-5">Total Humpy Pounds: <u><b><%=humpy_pounds(vessel, vessel.fish_tickets)%></b></u> lbs</p>
-<p class="mx-5">Total King Pounds: <u><b><%=king_pounds(vessel, vessel.fish_tickets)%></b></u> lbs</p>
+<% if date %> 
+<h2> <%= "Total Pounds For #{vessel.name} During The Month Of" %> <u><%= "#{date.strftime("%B")}" %> </u></h2>
+<% else %>
+<h2> <%= "Total Pounds For #{vessel.name}" %></h2>
+<% end %>
+
+<p class="mx-5">Total Chum Pounds: <u><b><%=chum_pounds(vessel.fish_tickets, date)%></b></u> lbs  </p>
+<p class="mx-5">Total Sockeye Pounds: <u><b><%=sockeye_pounds(vessel.fish_tickets, date)%></b></u> lbs</p>
+<p class="mx-5">Total Coho Pounds: <u><b><%=coho_pounds(vessel.fish_tickets, date)%></b></u> lbs</p>
+<p class="mx-5">Total Humpy Pounds: <u><b><%=humpy_pounds(vessel.fish_tickets, date)%></b></u> lbs</p>
+<p class="mx-5">Total King Pounds: <u><b><%=king_pounds(vessel.fish_tickets, date)%></b></u> lbs</p>

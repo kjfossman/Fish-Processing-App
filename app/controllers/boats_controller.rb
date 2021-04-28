@@ -5,6 +5,12 @@ class BoatsController < ApplicationController
     end
 
     def show
+         
+       if params[:month] && params[:month] != "Total"
+        @date = params[:month].to_datetime 
+       else
+        @date = nil
+       end
         @boat = Boat.find_by(id: params[:id])
     end
 

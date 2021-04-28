@@ -5,5 +5,12 @@
 <%= link_to "All Fish Tickets", boat_fish_tickets_path(@boat), class: "btn btn-outline-success btn-sm m-1" %></h1>
 <h1><%=@boat.name%> </h1>
 <h5><%= "Captain: #{@boat.captain}" %></h5>
-<h5><%= "Home Port: #{@boat.home_port}" %></h5>
-<%= render partial: 'builder/total_pounds', locals: {vessel: @boat} %>
+<h5><%= "Home Port: #{@boat.home_port}" %></h5><br>
+
+<div class= "b">
+<%= form_tag(boat_path(@boat), method: :get) do %>
+    <%= select_tag(:month, options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Total"], selected: "Total")) %>
+    <%= submit_tag ("Filter Pounds By Month"), class: "btn btn-outline-dark btn-sm m-1" %>
+    <% end %>
+</div>
+<%= render partial: 'builder/total_pounds', locals: {vessel: @boat, date: @date} %>
