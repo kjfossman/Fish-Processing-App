@@ -41,3 +41,8 @@ div.a{
     border-radius: 4px;
     background-color: pink;
  }
+
+ div.c{
+     display: inline;
+     margin-right: 40px;
+ }
