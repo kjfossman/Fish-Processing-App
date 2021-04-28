@@ -1,3 +1,7 @@
-<h1><%=@tender.name%> <%= link_to "EDIT", edit_tender_path(@tender), class: "btn btn-outline-warning btn-sm m-1" %><%= link_to "DELETE", tender_path(@tender), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %><%= link_to 'TENDERS', tenders_path, class: "btn btn-outline-dark btn-sm m-1"%></h1>
-<p class="mx-4"><%= "Captain: #{@tender.captain}" %></p>
-<p class="mx-4"><%= "Home Port: #{@tender.home_port}" %></p>
+<h1><%= link_to "EDIT", edit_tender_path(@tender), class: "btn btn-outline-warning btn-sm m-1" %>
+<%= link_to "DELETE", tender_path(@tender), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %>
+<%= link_to 'TENDERS', tenders_path, class: "btn btn-outline-dark btn-sm m-1"%>
+<%= link_to "All Fish Tickets", tender_fish_tickets_path(@tender), class: "btn btn-outline-success btn-sm m-1" %></h1>
+<h1><%=@tender.name%> </h1>
+<h5><%= "Captain: #{@tender.captain}" %></h5>
+<h5><%= "Home Port: #{@tender.home_port}" %></h5>

@@ -1,5 +1,7 @@
 <% if @boat %>
 <h1><%= "Create Fish Ticket For The #{@boat.name}" %></h1>
+<% elsif @tender%>
+<h1><%= "Create Fish Ticket For Tender #{@tender.name}" %></h1>
 <% else %>
 <h1>Create Fish Ticket</h1>
 <% end %>

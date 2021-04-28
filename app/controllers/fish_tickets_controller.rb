@@ -13,11 +13,12 @@ class FishTicketsController < ApplicationController
     end
 
     def index 
-      
         @boat = Boat.find_by(id: params[:boat_id])
-      
+        @tender = Tender.find_by(id: params[:tender_id])
         if params[:boat_id]
             @fish_tickets = Boat.find_by(id: params[:boat_id]).fish_tickets
+        elsif params[:tender_id]
+            @fish_tickets = Tender.find_by(id: params[:tender_id]).fish_tickets
         else
             @fish_tickets = FishTicket.all   
         end
@@ -29,6 +30,7 @@ class FishTicketsController < ApplicationController
 
     def new
         @boat = Boat.find_by(id: params[:boat_id]) if params[:boat_id]
+        @tender = Tender.find_by(id: params[:tender_id]) if params[:tender_id]
         @fish_ticket = FishTicket.new
     end
 
@@ -45,6 +47,9 @@ class FishTicketsController < ApplicationController
         @date = params[:date].to_datetime.strftime("%B %d, %Y")
         if params[:boat_id]
             @fish_tickets = FishTicket.by_boat(params[:boat_id])
+            @fish_tickets = @fish_tickets.by_day(params[:date].to_datetime)
+        elsif params[:tender_id]
+            @fish_tickets = FishTicket.by_tender(params[:tender_id])
             @fish_tickets = @fish_tickets.by_day(params[:date].to_datetime)
         else 
             @fish_tickets = FishTicket.by_day(params[:date].to_datetime)
@@ -82,6 +87,6 @@ class FishTicketsController < ApplicationController
 
     private
     def fish_ticket_params
-        params.require(:fish_ticket).permit(:boat_id, :tender_id, :fish_processor_id, :chum_pounds, :coho_pounds, :sockeye_pounds, :humpy_pounds, :king_pounds, :ticket_number, :date, :search, :boat_id)
+        params.require(:fish_ticket).permit(:boat_id, :tender_id, :fish_processor_id, :chum_pounds, :coho_pounds, :sockeye_pounds, :humpy_pounds, :king_pounds, :ticket_number, :date, :search, :boat_id, :tender_id)
     end
 end

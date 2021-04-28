@@ -20,8 +20,12 @@
     <%= f.label :date %>
     <%= f.date_select :date, start_year: 2000, end_year: Time.now.year %><br>
 
+    <%if !@tender%>
     <%= f.label :tender %>
     <%= f.collection_select :tender_id, Tender.all, :id, :name, prompt: true %><br>
+    <%else%>
+    <%= f.hidden_field :tender_id, value: @tender.id %>
+    <%end%>
     
     <%if !@boat%>
     <%= f.label :boat %>

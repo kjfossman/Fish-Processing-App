@@ -9,6 +9,7 @@ class FishTicket < ApplicationRecord
 
     scope :by_day, ->(day) { where("date = ?", day) }
     scope :by_boat, ->(boat) { where("boat_id = ?", boat) }
+    scope :by_tender, ->(tender) { where("tender_id = ?", tender)}
 
     # Order.select("created_at").group("created_at")
 

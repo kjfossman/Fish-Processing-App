@@ -1,5 +1,5 @@
-<h1>Fishing Boats</h1>
-<p><%=link_to "Add New Boat", new_boat_path, class: "btn btn-outline-warning m-2"%></p>
+<h1>Fishing Boats <%=link_to "Add New Boat", new_boat_path, class: "btn btn-outline-warning m-2"%></h1>
+
 <ol>
     <% Boat.all.each do |x| %>
     

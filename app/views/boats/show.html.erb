@@ -1,9 +1,13 @@
-<h1><%=@boat.name%> <%= link_to "EDIT", edit_boat_path(@boat), class: "btn btn-outline-warning btn-sm m-1" %><%= link_to "DELETE", boat_path(@boat), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %><%= link_to 'FISHING BOATS', boats_path, class: "btn btn-outline-dark btn-sm m-1"%></h1>
-<p class="mx-4"><%= "Captain: #{@boat.captain}" %></p>
-<p class="mx-4"><%= "Home Port: #{@boat.home_port}" %></p>
-<p class="mx-4">Total Chum Pounds: <u><b><%=chum_pounds(@boat)%></b></u> lbs  </p>
-<p class="mx-4">Total Sockeye Pounds: <u><b><%=sockeye_pounds(@boat)%></b></u> lbs</p>
-<p class="mx-4">Total Coho Pounds: <u><b><%=coho_pounds(@boat)%></b></u> lbs</p>
-<p class="mx-4">Total Humpy Pounds: <u><b><%=humpy_pounds(@boat)%></b></u> lbs</p>
-<p class="mx-4">Total King Pounds: <u><b><%=king_pounds(@boat)%></b></u> lbs</p>
-<p><%= link_to "All Fish Tickets", boat_fish_tickets_path(@boat), class: "btn btn-outline-dark btn-sm m-1" %></p>
+
+<%= link_to "EDIT", edit_boat_path(@boat), class: "btn btn-outline-warning btn-sm m-1" %>
+<%= link_to "DELETE", boat_path(@boat), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %>
+<%= link_to 'FISHING BOATS', boats_path, class: "btn btn-outline-dark btn-sm m-1"%>
+<%= link_to "All Fish Tickets", boat_fish_tickets_path(@boat), class: "btn btn-outline-success btn-sm m-1" %></h1>
+<h1><%=@boat.name%> </h1>
+<h5><%= "Captain: #{@boat.captain}" %></h5>
+<h5><%= "Home Port: #{@boat.home_port}" %></h5>
+<p class="mx-5">Total Chum Pounds: <u><b><%=chum_pounds(@boat)%></b></u> lbs  </p>
+<p class="mx-5">Total Sockeye Pounds: <u><b><%=sockeye_pounds(@boat)%></b></u> lbs</p>
+<p class="mx-5">Total Coho Pounds: <u><b><%=coho_pounds(@boat)%></b></u> lbs</p>
+<p class="mx-5">Total Humpy Pounds: <u><b><%=humpy_pounds(@boat)%></b></u> lbs</p>
+<p class="mx-5">Total King Pounds: <u><b><%=king_pounds(@boat)%></b></u> lbs</p>

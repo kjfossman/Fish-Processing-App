@@ -1,14 +1,21 @@
 <h1>Welcome to the page of Fish Tickets</h1>
-<% if !@boat %>
+<% if @boat %>
+<p><%=link_to "Add New FISH TICKET For The #{@boat.name}", new_boat_fish_ticket_path, class: "btn btn-outline-warning m-2"%></p>
+    <% @fish_tickets.select("date").group("date").count.each do |x| %>     
+        <%= link_to "#{x[0].strftime("%B %d, %Y")} - #{x[1]} Ticket(s)", date_path(x[0], boat_id: @boat.id), class: "btn btn-outline-success m-2"%><br>
+    <% end %>
+
+<% elsif @tender%>
+<p><%=link_to "Add New FISH TICKET For The Tender #{@tender.name}", new_tender_fish_ticket_path, class: "btn btn-outline-warning m-2"%></p>
+<% @fish_tickets.select("date").group("date").count.each do |x| %>     
+    <%= link_to "#{x[0].strftime("%B %d, %Y")} - #{x[1]} Ticket(s)", date_path(x[0], tender_id: @tender.id), class: "btn btn-outline-success m-2"%><br>
+<% end %>
+
+<% else %>
 <p><%=link_to "Add New FISH TICKET", new_fish_ticket_path, class: "btn btn-outline-warning m-2"%></p>
 <% @fish_tickets.select("date").group("date").count.each do |x| %>     
     <%= link_to "#{x[0].strftime("%B %d, %Y")} - #{x[1]} Ticket(s)", date_path(x[0]), class: "btn btn-outline-success m-2"%><br>
 <% end %>
-<% else %>
-<p><%=link_to "Add New FISH TICKET For the #{@boat.name}", new_boat_fish_ticket_path, class: "btn btn-outline-warning m-2"%></p>
-    <% @fish_tickets.select("date").group("date").count.each do |x| %>     
-        <%= link_to "#{x[0].strftime("%B %d, %Y")} - #{x[1]} Ticket(s)", date_path(x[0], boat_id: @boat.id), class: "btn btn-outline-success m-2"%><br>
-    <% end %>
 <% end %>
 
 
