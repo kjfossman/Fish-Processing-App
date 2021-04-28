@@ -5,6 +5,7 @@ class FishTicket < ApplicationRecord
 
     validates :date, presence: true
     validates :ticket_number, presence: true, uniqueness: true
+    validates :chum_pounds, :sockeye_pounds, :coho_pounds, :humpy_pounds, :king_pounds, presence: true
 
     scope :by_day, ->(day) { where("date = ?", day) }
     scope :by_boat, ->(boat) { where("boat_id = ?", boat) }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_005142) do
+ActiveRecord::Schema.define(version: 2021_04_28_001156) do
 
   create_table "boats", force: :cascade do |t|
     t.string "name"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 2021_04_23_005142) do
   create_table "fish_tickets", force: :cascade do |t|
     t.integer "tender_id"
     t.integer "boat_id"
-    t.integer "chum_pounds"
-    t.integer "sockeye_pounds"
-    t.integer "coho_pounds"
-    t.integer "humpy_pounds"
-    t.integer "king_pounds"
+    t.integer "chum_pounds", default: 0
+    t.integer "sockeye_pounds", default: 0
+    t.integer "coho_pounds", default: 0
+    t.integer "humpy_pounds", default: 0
+    t.integer "king_pounds", default: 0
     t.datetime "date"
     t.integer "ticket_number"
     t.datetime "created_at", precision: 6, null: false
