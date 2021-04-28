@@ -6,8 +6,4 @@
 <h1><%=@boat.name%> </h1>
 <h5><%= "Captain: #{@boat.captain}" %></h5>
 <h5><%= "Home Port: #{@boat.home_port}" %></h5>
-<p class="mx-5">Total Chum Pounds: <u><b><%=chum_pounds(@boat)%></b></u> lbs  </p>
-<p class="mx-5">Total Sockeye Pounds: <u><b><%=sockeye_pounds(@boat)%></b></u> lbs</p>
-<p class="mx-5">Total Coho Pounds: <u><b><%=coho_pounds(@boat)%></b></u> lbs</p>
-<p class="mx-5">Total Humpy Pounds: <u><b><%=humpy_pounds(@boat)%></b></u> lbs</p>
-<p class="mx-5">Total King Pounds: <u><b><%=king_pounds(@boat)%></b></u> lbs</p>
+<%= render partial: 'builder/total_pounds', locals: {vessel: @boat} %>

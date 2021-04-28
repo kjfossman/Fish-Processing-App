@@ -5,3 +5,12 @@
 <h1><%=@tender.name%> </h1>
 <h5><%= "Captain: #{@tender.captain}" %></h5>
 <h5><%= "Home Port: #{@tender.home_port}" %></h5>
+
+
+
+<%= form_tag(tender_path(@tender), method: :get) do %>
+    <%= select_tag(:month, options_for_select(Date::MONTHNAMES[1..12])) %>
+    <%= submit_tag ("Filter") %>
+    <% end %>
+
+<%= render partial: 'builder/total_pounds', locals: {vessel: @tender} %>
