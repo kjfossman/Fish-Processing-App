@@ -1,0 +1,30 @@
+<%= render partial: 'builder/errors', locals: {vessel: @invoice} %>
+<%= form_with(model: @invoice) do |f| %>
+    <%= f.label :invoice_number %>
+    <%= f.text_field :number %><br>
+
+    <%= f.label :date %>
+    <%= f.date_select :date, start_year: 2000, end_year: Time.now.year %><br>
+
+    <%= f.label :chum_price %>
+    <%= f.number_field :chum_price, step: :any%><br>
+
+    <%= f.label :sockeye_price %>
+    <%= f.number_field :sockeye_price, step: :any %><br>
+
+    <%= f.label :coho_price %>
+    <%= f.number_field :coho_price, step: :any %><br>
+
+    <%= f.label :humpy_price %>
+    <%= f.number_field :humpy_price, step: :any %><br>
+
+    <%= f.label :king_price %>
+    <%= f.number_field :king_price, step: :any %><br>
+
+    <%= f.hidden_field :boat_id, value: @boat.id %>
+
+    <%= f.label "Fish Tickets" %>
+    <%= f.collection_check_boxes :fish_ticket_ids, FishTicket.all, :id, :ticket_number  %><br>
+   
+    <%= f.submit "Submit" %>
+    <% end %>

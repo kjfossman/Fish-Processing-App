@@ -2,6 +2,7 @@ class FishTicket < ApplicationRecord
     belongs_to :tender
     belongs_to :boat
     belongs_to :fish_processor
+    belongs_to :invoice, optional: true
 
     validates :date, presence: true
     validates :ticket_number, presence: true, uniqueness: true

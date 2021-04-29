@@ -3,6 +3,7 @@
 <%= link_to "DELETE", boat_path(@boat), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %>
 <%= link_to 'FISHING BOATS', boats_path, class: "btn btn-outline-dark btn-sm m-1"%>
 <%= link_to "All Fish Tickets", boat_fish_tickets_path(@boat), class: "btn btn-outline-success btn-sm m-1" %>
+<%= link_to "All Invoices", boat_invoices_path(@boat), class: "btn btn-outline-info btn-sm m-1" %>
 </h1>
 <h1><%=@boat.name%> </h1>
 <h5><%= "Captain: #{@boat.captain}" %></h5>

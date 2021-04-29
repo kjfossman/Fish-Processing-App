@@ -1,0 +1,15 @@
+
+
+<% if @boat %>
+<h1><%= "Invoices For The #{@boat.name}" %></h1>
+<p><%=link_to "Add New Invoice For The #{@boat.name}", new_boat_invoice_path, class: "btn btn-outline-warning m-2"%></p>
+<%else%>
+<h1>Invoices </h1>
+<% end %>
+<ol>
+    <% @invoices.each do |x| %>
+    
+        <li><%= link_to "#{x.number} - #{x.boat}", invoice_path(x), class: "btn btn-outline-success m-2"%></li>
+   
+    <% end %>
+</ol>

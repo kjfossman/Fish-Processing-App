@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :fish_processors
   resources :tenders
   resources :boats
+  resources :invoices
   
+  resources :boats do 
+    resources :invoices
+  end
+
   resources :tenders do 
     resources :fish_tickets
   end
