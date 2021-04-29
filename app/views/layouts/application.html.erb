@@ -43,6 +43,16 @@
         <li class="nav-item">
         <%= link_to 'Home', root_path, class: "btn btn-primary m-2"%><br>
         </li>
+        
+        <li class="nav-item">
+        <%= link_to 'TENDERS', tenders_path, class: "btn btn-primary m-2"%><br>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'FISHING BOATS', boats_path, class: "btn btn-primary m-2"%><br>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'FISH TICKETS', fish_tickets_path, class: "btn btn-primary m-2"%><br>
+        </li>
         <li class="nav-item">
         <%= link_to 'LOGOUT', logout_path, class: "btn btn-primary m-2", method: 'delete' %><br>
         </li>
@@ -52,6 +62,7 @@
           <%= submit_tag ("Search Fish Ticket by Number") %>
           <% end %>
         </li>
+        
 
         <% end %>  
       </ul>
