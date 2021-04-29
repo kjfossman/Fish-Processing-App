@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
     
         @boat = Boat.find_by(id: params[:boat_id]) if params[:boat_id]
         @invoice = Invoice.new
-        byebug
+        
     end
 
     def create
@@ -24,7 +24,7 @@ class InvoicesController < ApplicationController
         if @invoice.save 
             redirect_to invoice_path(@invoice)
         else
-            redirect_to new_boat_invoice_path(@boat)
+            render :new
         end
     end
 

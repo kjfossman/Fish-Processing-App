@@ -1,5 +1,5 @@
 <%= render partial: 'builder/errors', locals: {vessel: @invoice} %>
-<%= form_with(model: @invoice) do |f| %>
+<%= form_with(model: [@boat, @invoice]) do |f| %>
     <%= f.label :invoice_number %>
     <%= f.text_field :number %><br>
 
