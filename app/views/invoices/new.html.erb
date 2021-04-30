@@ -24,7 +24,7 @@
     <%= f.hidden_field :boat_id, value: @boat.id %>
 
     <%= f.label "Fish Tickets" %>
-    <%= f.collection_check_boxes(:fish_ticket_ids, @boat.fish_tickets, :id, :cb_label, {:include_blank => 'name of your blank prompt'}) do |b|%><br> 
+    <%= f.collection_check_boxes(:fish_ticket_ids, @boat.fish_tickets.invoice, :id, :cb_label, {:include_blank => 'name of your blank prompt'}) do |b|%><br> 
         <%= b.check_box %>
        <%= b.label %>
         <% end %><br>

@@ -1,7 +1,10 @@
 <h1><%= "#{@date} Fish Tickets" %></h1>
 <% @fish_tickets.each do |x| %>
     <div class="b">
-   <%= "#{x.boat.name} - " if x.boat%> <%= link_to "Fish Ticket Number #{x.ticket_number}", fish_ticket_path(x), class: "btn btn-outline-success m-2" %><br>
+   <%= "#{x.boat.name}: " if x.boat%> <%= link_to "Fish Ticket Number #{x.ticket_number}", fish_ticket_path(x), class: "btn btn-outline-success m-2" %>
+   <%if x.invoice %>
+<%= "->" %><%= link_to "INVOICE # #{x.invoice.number}", invoice_path(x.invoice), class: "btn btn-outline-info btn-sm m-1"%>
+<%end%><br>
     </div>
    <% end %>
 

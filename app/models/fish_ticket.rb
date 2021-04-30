@@ -12,7 +12,7 @@ class FishTicket < ApplicationRecord
     scope :by_boat, ->(boat) { where("boat_id = ?", boat) }
     scope :by_tender, ->(tender) { where("tender_id = ?", tender)}
     # scope :invoice, ->(month) { where("invoice_id != nil", month)}
-    scope :invoice, -> { where(invoice_id: true) }
+    scope :invoice, -> { where(invoice_id: nil) }
 
     def cb_label
         "#{self.date.strftime("%B %d, %Y")}, Ticket: #{self.ticket_number} Boat: #{self.boat.name},     

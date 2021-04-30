@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_160018) do
+ActiveRecord::Schema.define(version: 2021_04_30_223607) do
 
   create_table "boats", force: :cascade do |t|
     t.string "name"
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 2021_04_30_160018) do
 
   create_table "invoices", force: :cascade do |t|
     t.integer "boat_id"
-    t.float "chum_price"
-    t.float "sockeye_price"
-    t.float "coho_price"
-    t.float "humpy_price"
-    t.float "king_price"
+    t.float "chum_price", default: 0.5
+    t.float "sockeye_price", default: 1.45
+    t.float "coho_price", default: 1.1
+    t.float "humpy_price", default: 0.15
+    t.float "king_price", default: 3.75
     t.datetime "date"
     t.boolean "paid"
     t.datetime "created_at", precision: 6, null: false

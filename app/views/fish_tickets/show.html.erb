@@ -10,4 +10,8 @@
 <p> <%= "King Pounds: "%> <b><%="#{@fish_ticket.king_pounds}" %></b> </p>
 </div>
 
-<h1><%= link_to "EDIT", edit_fish_ticket_path(@fish_ticket), class: "btn btn-outline-warning btn-sm m-1" %><%= link_to "DELETE", fish_ticket_path(@fish_ticket), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %></h1>
+<h1><%= link_to "EDIT", edit_fish_ticket_path(@fish_ticket), class: "btn btn-outline-warning btn-sm m-1" %>
+<%= link_to "DELETE", fish_ticket_path(@fish_ticket), method: "delete", class: "btn btn-outline-danger btn-sm m-1" %>
+<%if @fish_ticket.invoice %>
+<%= link_to "INVOICE # #{@fish_ticket.invoice.number}", invoice_path(@fish_ticket.invoice), class: "btn btn-outline-info btn-sm m-1"%>
+<%end%></h1>

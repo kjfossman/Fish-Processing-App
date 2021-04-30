@@ -42,6 +42,20 @@ div.a{
     background-color: pink;
  }
 
+ .paid {
+    display: inline;
+    border: 2px solid green;
+    border-radius: 4px;
+    background-color: lime;
+ }
+
+ .unpaid {
+    display: inline;
+    border: 2px solid red;
+    border-radius: 4px;
+    background-color: pink;
+ }
+
 
  .c {
      font-size: large;

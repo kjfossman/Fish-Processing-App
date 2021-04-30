@@ -7,9 +7,21 @@
 <h1>Invoices </h1>
 <% end %>
 <ul>
+<% if @boat %>
     <% @invoices.each do |x| %>
-    
-        <li><%= link_to "Invoice#: #{x.number} - #{x.boat.name}", invoice_path(x), class: "btn btn-outline-success m-2"%></li>
-   
+        <% if x.paid %>
+        <li><%= link_to "Invoice#: #{x.number} - #{x.boat.name} - PAID", boat_invoice_path(@boat, x), class: "btn btn-outline-success m-2"%></li>
+        <%else%>
+        <li><%= link_to "Invoice#: #{x.number} - #{x.boat.name} - OUTSTANDING", boat_invoice_path(@boat, x), class: "btn btn-outline-danger m-2"%></li>
+        <%end%>
+    <% end %>
+    <%else%>
+    <% @invoices.each do |x| %>
+        <% if x.paid %>
+        <li><%= link_to "Invoice#: #{x.number} - #{x.boat.name} - PAID", invoice_path(x), class: "btn btn-outline-success m-2"%></li>
+        <%else%>
+        <li><%= link_to "Invoice#: #{x.number} - #{x.boat.name} - OUTSTANDING", invoice_path(x), class: "btn btn-outline-danger m-2"%></li>
+        <%end%>
+    <% end %>
     <% end %>
 </ul>

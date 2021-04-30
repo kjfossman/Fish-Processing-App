@@ -18,7 +18,7 @@ class InvoicesController < ApplicationController
     end
 
     def create
-        byebug
+       
         @boat = Boat.find_by(id: params[:invoice][:boat_id]) if params[:invoice][:boat_id]
         @invoice = Invoice.new(invoice_params)
         if @invoice.save 
@@ -30,6 +30,17 @@ class InvoicesController < ApplicationController
 
     def show
         @invoice = Invoice.find_by(id: params[:id])
+    end
+
+    def update
+        @invoice = Invoice.find_by(id: params[:id])
+        @invoice.update(paid: params[:invoice][:paid])
+        if @invoice.save
+            redirect_to invoice_path(@invoice)
+        else
+            flash[:message] = "Unable to Update Invoice"
+            render :show
+        end
     end
 
     private 

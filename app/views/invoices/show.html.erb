@@ -1,5 +1,16 @@
-
+<div class="b">
+<% if @invoice.paid %>
+<div class="paid">
+<%= invoice_paid?(@invoice) %><br>
+<%else%>
+<div class="unpaid">
+<%= invoice_paid?(@invoice) %><br>
+<%end%>
+</div>
 <%= "INVOICE # #{@invoice.number}" %><br>
+
+
+
 <%= "BOAT: #{@invoice.boat.name.upcase}" %><br>
 <%= "Captain: #{@invoice.boat.captain.upcase}" %><br>
 <%= "Date: #{@invoice.date.strftime("%B %d, %Y")}"%><br>
@@ -9,4 +20,15 @@
 <%= "Humpy   --- #{species_cost(@invoice.humpy_price, humpy_pounds(@invoice.fish_tickets))}"%><br>
 <%= "King    --- #{species_cost(@invoice.king_price, king_pounds(@invoice.fish_tickets))}"%><br><br>
 
-<div class="c"><%= "Total   --- #{total_price_invoice(@invoice, @invoice.fish_tickets)}"%></div>
+<div class="c"><%= "Total   --- #{total_price_invoice(@invoice, @invoice.fish_tickets)}"%></div><br>
+<br><br><br>
+<%= "Fish Tickets Inlcuded On This Invoice"%><br></div>
+<% @invoice.fish_tickets.each do |x| %>
+    <%= link_to "#{x.ticket_number} - #{x.date.strftime("%B %d, %Y")}", boat_fish_ticket_path(x), class: "btn btn-outline-success m-2" %><br>
+    <%end%>
+
+    <%= form_with(model: @invoice) do |f| %>   
+        <%= f.label :mark_as_paid %>
+        <%= f.check_box :paid %><br>
+        <%= f.submit "Submit"%>
+    <% end %>

@@ -14,5 +14,13 @@ module InvoicesHelper
         total = [chum, sockeye, coho, humpy, king]
         number_to_currency(total.sum, :unit => "$")
     end
+
+    def invoice_paid?(invoice)
+        if invoice.paid
+            "PAID"
+        else
+            "OUTSTANDING PAYMENT"
+        end 
+    end
 end
 
