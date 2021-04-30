@@ -1,1 +1,12 @@
-<h1>made it to the show page</h1>
+
+<%= "INVOICE # #{@invoice.number}" %><br>
+<%= "BOAT: #{@invoice.boat.name.upcase}" %><br>
+<%= "Captain: #{@invoice.boat.captain.upcase}" %><br>
+<%= "Date: #{@invoice.date.strftime("%B %d, %Y")}"%><br>
+<%= "Chum    --- #{species_cost(@invoice.chum_price, chum_pounds(@invoice.fish_tickets))}"%><br>
+<%= "Sockeye --- #{species_cost(@invoice.sockeye_price, sockeye_pounds(@invoice.fish_tickets))}"%><br>
+<%= "Coho    --- #{species_cost(@invoice.coho_price, coho_pounds(@invoice.fish_tickets))}"%><br>
+<%= "Humpy   --- #{species_cost(@invoice.humpy_price, humpy_pounds(@invoice.fish_tickets))}"%><br>
+<%= "King    --- #{species_cost(@invoice.king_price, king_pounds(@invoice.fish_tickets))}"%><br><br>
+
+<div class="c"><%= "Total   --- #{total_price_invoice(@invoice, @invoice.fish_tickets)}"%></div>

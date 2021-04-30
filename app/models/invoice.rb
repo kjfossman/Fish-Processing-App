@@ -9,4 +9,8 @@ class Invoice < ApplicationRecord
     validates :coho_price, presence: true
     validates :humpy_price, presence: true
     validates :king_price, presence: true
+
+    accepts_nested_attributes_for :fish_tickets
+
+   
 end

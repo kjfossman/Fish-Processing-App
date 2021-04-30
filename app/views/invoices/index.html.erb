@@ -6,10 +6,10 @@
 <%else%>
 <h1>Invoices </h1>
 <% end %>
-<ol>
+<ul>
     <% @invoices.each do |x| %>
     
-        <li><%= link_to "#{x.number} - #{x.boat}", invoice_path(x), class: "btn btn-outline-success m-2"%></li>
+        <li><%= link_to "Invoice#: #{x.number} - #{x.boat.name}", invoice_path(x), class: "btn btn-outline-success m-2"%></li>
    
     <% end %>
-</ol>
+</ul>

@@ -28,6 +28,10 @@ class InvoicesController < ApplicationController
         end
     end
 
+    def show
+        @invoice = Invoice.find_by(id: params[:id])
+    end
+
     private 
     def invoice_params
         params.require(:invoice).permit(:number, :boat_id, :date, :chum_price, :sockeye_price, :coho_price, :humpy_price, :king_price, :fish_ticket_ids => [])
