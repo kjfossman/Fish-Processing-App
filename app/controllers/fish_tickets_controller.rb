@@ -29,6 +29,7 @@ class FishTicketsController < ApplicationController
     end
 
     def new
+        
         @boat = Boat.find_by(id: params[:boat_id]) if params[:boat_id]
         @tender = Tender.find_by(id: params[:tender_id]) if params[:tender_id]
         @fish_ticket = FishTicket.new

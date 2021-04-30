@@ -13,6 +13,13 @@ class FishTicket < ApplicationRecord
     scope :by_tender, ->(tender) { where("tender_id = ?", tender)}
     scope :by_month, ->(month) { where("MONTH(date) = ?", month)}
 
+    def cb_label
+        "#{self.date.strftime("%B %d, %Y")}, Ticket: #{self.ticket_number} Boat: #{self.boat.name},     
+        Chum: #{self.chum_pounds} lbs,  Sockeye: #{self.sockeye_pounds} lbs,  Coho: #{self.coho_pounds} lbs,  Humpy: #{self.humpy_pounds} lbs,  King: #{self.king_pounds} lbs, "
+    end
+
+     
+
     # Order.select("created_at").group("created_at")
 
 

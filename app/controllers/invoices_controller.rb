@@ -18,7 +18,7 @@ class InvoicesController < ApplicationController
     end
 
     def create
-     
+        byebug
         @boat = Boat.find_by(id: params[:invoice][:boat_id]) if params[:invoice][:boat_id]
         @invoice = Invoice.new(invoice_params)
         if @invoice.save 

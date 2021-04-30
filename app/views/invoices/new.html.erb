@@ -24,7 +24,10 @@
     <%= f.hidden_field :boat_id, value: @boat.id %>
 
     <%= f.label "Fish Tickets" %>
-    <%= f.collection_check_boxes :fish_ticket_ids, FishTicket.all, :id, :ticket_number  %><br>
-   
+    <%= f.collection_check_boxes(:fish_ticket_ids, @boat.fish_tickets, :id, :cb_label) do |b|%><br> 
+        <%= b.check_box %>
+       <%= b.label %>
+        <% end %><br>
+
     <%= f.submit "Submit" %>
     <% end %>
