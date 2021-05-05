@@ -29,7 +29,12 @@ class InvoicesController < ApplicationController
     end
 
     def show
+        @boat = Boat.find_by(id: params[:boat_id]) if params[:boat_id]
         @invoice = Invoice.find_by(id: params[:id])
+        if @boat && @boat.id != @invoice.boat.id
+            flash[:message] = "Invalid URL"
+            redirect_to root_path 
+        end
     end
 
     def update

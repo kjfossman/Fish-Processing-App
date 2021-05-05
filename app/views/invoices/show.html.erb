@@ -24,7 +24,7 @@
 <br><br><br>
 <%= "Fish Tickets Inlcuded On This Invoice"%><br></div>
 <% @invoice.fish_tickets.each do |x| %>
-    <%= link_to "#{x.ticket_number} - #{x.date.strftime("%B %d, %Y")}", boat_fish_ticket_path(x), class: "btn btn-outline-success m-2" %><br>
+    <%= link_to "#{x.ticket_number} - #{x.date.strftime("%B %d, %Y")}", boat_fish_ticket_path(@invoice.boat, x), class: "btn btn-outline-success m-2" %><br>
     <%end%>
 
     <%= form_with(model: @invoice) do |f| %>   
